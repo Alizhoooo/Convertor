@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер видео с субтитрами</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Конвертер видео с субтитрами</h1>
+        <div class="upload-container">
+            <div class="upload-box" id="video-upload">
+                <h2>Загрузите видео</h2>
+                <div class="drop-area" id="video-drop-area">
+                    <p>Перетащите файл сюда или</p>
+                    <label for="video-file" class="upload-btn">Выберите файл</label>
+                    <input type="file" id="video-file" accept="video/*" hidden>
+                </div>
+                <div class="file-info" id="video-info">
+                    <p>Файл не выбран</p>
+                </div>
+            </div>
+            
+            <div class="upload-box" id="subtitle-upload">
+                <h2>Загрузите субтитры</h2>
+                <div class="drop-area" id="subtitle-drop-area">
+                    <p>Перетащите файл сюда или</p>
+                    <label for="subtitle-file" class="upload-btn">Выберите файл</label>
+                    <input type="file" id="subtitle-file" accept=".srt,.vtt,.ass" hidden>
+                </div>
+                <div class="file-info" id="subtitle-info">
+                    <p>Файл не выбран</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="options-container">
+            <h2>Настройки</h2>
+            <div class="option">
+                <label for="subtitle-position">Позиция субтитров:</label>
+                <select id="subtitle-position">
+                    <option value="bottom">Внизу</option>
+                    <option value="top">Вверху</option>
+                </select>
+            </div>
+            <div class="option">
+                <label for="font-size">Размер шрифта:</label>
+                <select id="font-size">
+                    <option value="small">Маленький</option>
+                    <option value="medium" selected>Средний</option>
+                    <option value="large">Большой</option>
+                </select>
+            </div>
+            <div class="option">
+                <label for="font-color">Цвет шрифта:</label>
+                <input type="color" id="font-color" value="#ffffff">
+            </div>
+        </div>
+        
+        <div class="action-container">
+            <button id="convert-btn" class="primary-btn" disabled>Конвертировать</button>
+        </div>
+        
+        <div class="progress-container" id="progress-container" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress" id="progress-bar"></div>
+            </div>
+            <p id="progress-text">0%</p>
+        </div>
+        
+        <div class="result-container" id="result-container" style="display: none;">
+            <h2>Готово!</h2>
+            <div class="video-preview">
+                <video id="result-video" controls></video>
+            </div>
+            <a id="download-link" class="primary-btn">Скачать видео</a>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
